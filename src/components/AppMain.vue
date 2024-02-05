@@ -11,7 +11,9 @@ export default {
                 <figure>
                     <img src="" alt="">
                     <figcaption>
-
+                        <h4 class="number"></h4>
+                        <h3 class="name"></h3>
+                        <h4 class="type"></h4>
                     </figcaption>
                 </figure>
             </div>
