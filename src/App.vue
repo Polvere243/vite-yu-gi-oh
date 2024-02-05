@@ -1,7 +1,16 @@
 <script>
-
+export default {
+  name: "Pokédex"
+}
 </script>
 
 <template></template>
 
-<style scoped></style>
+<style>
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+</style>
