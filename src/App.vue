@@ -7,7 +7,10 @@ export default {
 </script>
 
 <template>
-  <AppMain />
+  <body>
+    <AppMain />
+
+  </body>
 </template>
 
 <style lang="scss">
