@@ -7,11 +7,16 @@ export default {
   name: "Pokédex",
   components: { AppMain },
   data: () => ({
-    pokémon: []
+    pokémons: []
   }),
   created() {
     axios.get(endpoint).then(res => {
-      this.pokémon = res.data.docs;
+      this.pokémons = res.data.docs;
+      /* const newPokémon = this.pokémons.map(pokémon => {
+        return [{
+
+        }]
+      }) */
     })
   }
 }
@@ -19,7 +24,7 @@ export default {
 
 <template>
   <body>
-    <AppMain />
+    <AppMain :pokémons="pokémons" />
 
   </body>
 </template>

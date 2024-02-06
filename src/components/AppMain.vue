@@ -2,15 +2,19 @@
 import RowCards from "./RowCards.vue"
 export default {
     name: "MainApp",
-    pokémon: [],
-    components: { RowCards }
-
+    components: { RowCards },
+    props: {
+        pokémons: Array
+    }
 }
 </script>
 
 <template>
     <main id="container">
-        <RowCards></RowCards>
+        <div class="row">
+            <RowCards v-for="(pokémon, id) in pokémons" :key="id" :name="pokémon.name" :number="pokémon.number"
+                :image="pokémon.imageUrl" :type="pokémon.type1" :pokémons="pokémons"></RowCards>
+        </div>
     </main>
 </template>
 
@@ -24,5 +28,17 @@ export default {
     height: 80vh;
     border-radius: 10px;
     padding: 20px;
+}
+
+// riga
+.row {
+    background-color: rgb(53, 53, 53);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: auto;
+    gap: 5px;
+    padding: 10px;
 }
 </style>
