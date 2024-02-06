@@ -1,8 +1,16 @@
 <script>
-import AppMain from "./components/AppMain.vue"
+import axios from "axios";
+const endpoint = "https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons"
+import AppMain from "./components/AppMain.vue";
+import { store } from "./data/store.js";
 export default {
   name: "Pokédex",
-  components: { AppMain }
+  components: { AppMain },
+  created() {
+    axios.get(endpoint).then(res => {
+      this.pokémon = res.data.results;
+    })
+  }
 }
 </script>
 

@@ -1,6 +1,9 @@
 <script>
+
 export default {
-    name: "MainApp"
+    name: "MainApp",
+    pokémon: [],
+
 }
 </script>
 
