@@ -21,4 +21,20 @@ export default {
     </main>
 </template>
 
-<style  scoped></style>
+<style lang="scss" scoped>
+// centrare il contenitore
+
+#container {
+    max-width: 1080px;
+    margin: 50px auto;
+    background-color: lightgray;
+    height: 80vh;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.row {
+    background-color: rgb(53, 53, 53);
+    height: 100%;
+}
+</style>
