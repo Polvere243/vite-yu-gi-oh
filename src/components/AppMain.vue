@@ -39,10 +39,13 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    flex-basis: calc(100 / 5);
+
 }
 
 // card
 
-.card {}
+.card {
+    flex-basis: calc(100 / 5);
+    border-radius: 10px;
+}
 </style>
