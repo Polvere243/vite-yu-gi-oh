@@ -1,26 +1,16 @@
 <script>
-
+import RowCards from "./RowCards.vue"
 export default {
     name: "MainApp",
     pokémon: [],
+    components: { RowCards }
 
 }
 </script>
 
 <template>
     <main id="container">
-        <div class="row">
-            <div class="card">
-                <figure>
-                    <img src="" alt="">
-                    <figcaption>
-                        <h4 class="number"></h4>
-                        <h3 class="name"></h3>
-                        <h4 class="type"></h4>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
+        <RowCards></RowCards>
     </main>
 </template>
 
@@ -34,21 +24,5 @@ export default {
     height: 80vh;
     border-radius: 10px;
     padding: 20px;
-}
-
-.row {
-    background-color: rgb(53, 53, 53);
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-
-}
-
-// card
-
-.card {
-    flex-basis: calc(100 / 5);
-    border-radius: 10px;
 }
 </style>
