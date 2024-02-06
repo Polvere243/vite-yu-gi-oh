@@ -36,5 +36,13 @@ export default {
 .row {
     background-color: rgb(53, 53, 53);
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-basis: calc(100 / 5);
 }
+
+// card
+
+.card {}
 </style>
