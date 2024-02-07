@@ -16,17 +16,14 @@ export default {
   created() {
     axios.get(endpoint).then(res => {
       store.pokémons = res.data.docs;
-      console.log(store);
-      /* const newPokémons = this.pokémons.map(pokémon => {
-        return newPokémons = [{
-          id: "_id",
-          number: "number",
-          name: "name",
-          color: "color",
-          type: "type1",
-          image: "imageUrl"
-        }]
-      }) */
+      const pokémons = res.data.docs.map(pokémon => {
+        return {
+          id: pokémon._id,
+          image: pokémon.imageUrl,
+          name: pokémon.name,
+          type: pokémon.type1
+        }
+      })
     })
   }
 }
@@ -35,7 +32,7 @@ export default {
 <template>
   <body>
     <AppHeader></AppHeader>
-    <AppMain :pokémons="newPokémons" />
+    <AppMain />
 
   </body>
 </template>

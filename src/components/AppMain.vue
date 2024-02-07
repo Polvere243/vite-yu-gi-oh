@@ -1,19 +1,20 @@
 <script>
 import RowCards from "./RowCards.vue"
+import { store } from "../data/store.js";
 export default {
     name: "MainApp",
+    data: () => ({
+        store
+    }),
     components: { RowCards },
-    props: {
-        pokémons: Array
-    }
 }
 </script>
 
 <template>
     <main id="container">
         <div class="row">
-            <RowCards v-for="(pokémon, id) in pokémons" :key="id" :name="pokémon.name" :number="pokémon.number"
-                :image="pokémon.imageUrl" :type="pokémon.type1" :pokémons="pokémons"></RowCards>
+            <RowCards v-for="(pokémon, id) in store.pokémons" :key="id" :name="pokémon.name" :number="pokémon.number"
+                :image="pokémon.imageUrl" :type="pokémon.type1"></RowCards>
         </div>
     </main>
 </template>
