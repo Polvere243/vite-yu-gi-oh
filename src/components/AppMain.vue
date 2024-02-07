@@ -38,7 +38,7 @@ export default {
     flex-wrap: wrap;
     align-content: flex-start;
     overflow: auto;
-    gap: 5px;
     padding: 10px;
+    margin: 0 -10px;
 }
 </style>

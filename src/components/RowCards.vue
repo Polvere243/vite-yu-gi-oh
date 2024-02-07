@@ -29,14 +29,18 @@ export default {
 
 .card {
     flex-basis: calc(100% / 5);
-    border-radius: 10px;
-    background-color: white;
-    text-align: center;
     padding: 10px;
 }
 
 .card figure {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 0;
 }
 
 .card figcaption {
