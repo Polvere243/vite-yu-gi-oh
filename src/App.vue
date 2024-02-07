@@ -13,18 +13,24 @@ export default {
   data: () => ({
     store
   }),
-  created() {
-    axios.get(endpoint).then(res => {
-      store.pokémons = res.data.docs;
-      const pokémons = res.data.docs.map(pokémon => {
-        return {
-          id: pokémon._id,
-          image: pokémon.imageUrl,
-          name: pokémon.name,
-          type: pokémon.type1
-        }
+  methods: {
+    fetchPokémon() {
+      axios.get(endpoint).then(res => {
+        store.pokémons = res.data.docs;
+        const pokémons = res.data.docs.map(pokémon => {
+          return {
+            id: pokémon._id,
+            image: pokémon.imageUrl,
+            name: pokémon.name,
+            type: pokémon.type1
+          }
+        })
       })
-    })
+    }
+  },
+  created() {
+    this.fetchPokémon();
+
   }
 }
 </script>
