@@ -6,7 +6,6 @@ export default {
         number: Number,
         image: String,
         type: String,
-        pokémons: Array
     }
 }
 </script>

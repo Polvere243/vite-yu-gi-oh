@@ -11,7 +11,8 @@ export default {
   }),
   components: { AppMain, AppHeader },
   data: () => ({
-    store
+    store,
+    selectedType: ""
   }),
   methods: {
     fetchPokémon() {
