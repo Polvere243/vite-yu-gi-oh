@@ -2,19 +2,29 @@
 import axios from 'axios';
 const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
 import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue'
 import { store } from "./data/store.js";
 export default {
   name: "Pokédex",
-  components: { AppMain },
   data: () => ({
-    pokémons: []
+    selectedType: optionValue
+  }),
+  components: { AppMain, AppHeader },
+  data: () => ({
+    store
   }),
   created() {
     axios.get(endpoint).then(res => {
-      this.pokémons = res.data.docs;
-      /* const newPokémon = this.pokémons.map(pokémon => {
-        return [{
-
+      store.pokémons = res.data.docs;
+      console.log(store);
+      /* const newPokémons = this.pokémons.map(pokémon => {
+        return newPokémons = [{
+          id: "_id",
+          number: "number",
+          name: "name",
+          color: "color",
+          type: "type1",
+          image: "imageUrl"
         }]
       }) */
     })
@@ -24,7 +34,8 @@ export default {
 
 <template>
   <body>
-    <AppMain :pokémons="pokémons" />
+    <AppHeader></AppHeader>
+    <AppMain :pokémons="newPokémons" />
 
   </body>
 </template>
