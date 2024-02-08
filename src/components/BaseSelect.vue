@@ -2,21 +2,28 @@
 export default {
     name: "BaseSelect",
     props: {
-        valueString: "",
-        types: Array
+        defaultString: String,
+        defaultValue: String,
+        options: Array
     },
 
-    emits: []
+    emits: ['fetch-type']
 }
 
 </script>
 
 <template>
-    <form @change.prevent="fetchType">
-        <select name="" id="" v-model="selectedType">
-            <option v-if="!value" value=""> {{ valueString }}</option>
-            <option v-for="(type, i) in types" value="type"> {{ type }}</option>
+    <form @change.prevent="$emit('fetch-type')">
+        <select v-model="selectedType">
+            <option :value="defaultValue"> {{ defaultString }}</option>
+            <option v-for="(option, i) in options" value="option"> {{ option }}</option>
         </select>
     </form>
 </template>
+
+<style lang="scss" scoped>
+select {
+    cursor: pointer;
+}
+</style>
 

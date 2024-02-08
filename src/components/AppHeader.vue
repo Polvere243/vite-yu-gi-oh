@@ -6,14 +6,15 @@ export default {
     components: { BaseSelect },
     data: () => ({
         store
-    })
+    }),
+    emits: ['fetch-type']
 
 }
 </script>
 
 <template>
     <header>
-        <BaseSelect valueString="Tutti i tipi" :types="store.types"></BaseSelect>
+        <BaseSelect default-string="Tutti i tipi" :options="store.types" @fetchType=""></BaseSelect>
     </header>
 </template>
 
