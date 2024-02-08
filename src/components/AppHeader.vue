@@ -7,14 +7,17 @@ export default {
     data: () => ({
         store
     }),
-    emits: ['fetch-type']
-
+    methods: {
+        readValue(currentOptions) {
+            console.log(currentOptions)
+        }
+    }
 }
 </script>
 
 <template>
     <header>
-        <BaseSelect default-string="Tutti i tipi" :options="store.types" @fetchType=""></BaseSelect>
+        <BaseSelect default-string="Tutti i tipi" :options="store.types" @option-change="readValue"></BaseSelect>
     </header>
 </template>
 

@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
+const typeEndpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/types1'
 import AppMain from './components/AppMain.vue';
 import AppHeader from './components/AppHeader.vue'
 import { store } from "./data/store.js";
@@ -27,10 +28,22 @@ export default {
           }
         })
       })
+    },
+    fetchTypes() {
+      axios.get(typeEndpoint).then(res => {
+        store.types = res.data.map((type, i) => {
+          return {
+            id: i,
+            label: type,
+            value: type
+          }
+        })
+      })
     }
   },
   created() {
     this.fetchPokémon();
+    this.fetchTypes();
 
   }
 }
