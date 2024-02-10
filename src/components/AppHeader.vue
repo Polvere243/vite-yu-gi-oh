@@ -7,17 +7,14 @@ export default {
     data: () => ({
         store
     }),
-    methods: {
-        readValue(currentOptions) {
-            console.log(currentOptions)
-        }
-    }
+    emits: ['tell-change']
 }
 </script>
 
 <template>
     <header>
-        <BaseSelect default-string="Tutti i tipi" :options="store.types" @option-change="readValue"></BaseSelect>
+        <BaseSelect default-string="Tutti i tipi" :options="store.types" @option-change="$emit('tell-change', $event)">
+        </BaseSelect>
     </header>
 </template>
 

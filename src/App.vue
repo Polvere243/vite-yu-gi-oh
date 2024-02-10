@@ -7,13 +7,11 @@ import AppHeader from './components/AppHeader.vue'
 import { store } from "./data/store.js";
 export default {
   name: "Pokédex",
-  data: () => ({
-    selectedType: optionValue
-  }),
+
   components: { AppMain, AppHeader },
   data: () => ({
     store,
-    selectedType: ""
+
   }),
   methods: {
     fetchPokémon() {
@@ -39,6 +37,14 @@ export default {
           }
         })
       })
+    },
+    showPokémonByType(pippo) {
+      if (store.types.value) {
+        axios.get(endpoint + `?eq[type1]=${pippo}`);
+      }
+      else {
+        fetchPokémon()
+      }
     }
   },
   created() {
@@ -51,7 +57,7 @@ export default {
 
 <template>
   <body>
-    <AppHeader></AppHeader>
+    <AppHeader @tell-change="showPokémonByType"></AppHeader>
     <AppMain />
 
   </body>
