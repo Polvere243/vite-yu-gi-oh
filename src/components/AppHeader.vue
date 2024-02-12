@@ -13,7 +13,8 @@ export default {
 
 <template>
     <header>
-        <BaseSelect default-string="Tutti i tipi" :options="store.types" @option-change="$emit('tell-change', $event)">
+        <BaseSelect default-string="Tutti i tipi" default-value="" :options="store.types"
+            @option-change="$emit('tell-change', $event)">
         </BaseSelect>
     </header>
 </template>

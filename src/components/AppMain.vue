@@ -2,7 +2,7 @@
 import RowCards from "./RowCards.vue"
 import { store } from "../data/store.js";
 export default {
-    name: "MainApp",
+    name: "AppMain",
     data: () => ({
         store
     }),

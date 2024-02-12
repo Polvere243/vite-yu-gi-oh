@@ -39,14 +39,27 @@ export default {
       })
     },
     showPokémonByType(pippo) {
-      if (store.types.value) {
-        axios.get(endpoint + `?eq[type1]=${pippo}`);
+      if (pippo) {
+        console.log(store.types.value, pippo);
+        axios.get(`${endpoint}?eq[type1]=${pippo}`).then(res => {
+          store.pokémons = res.data.docs;
+          const pokemons = res.data.docs.map(pokémon => {
+            return {
+              id: pokémon._id,
+              number: pokémon.number,
+              name: pokémon.name,
+              type: pokémon.type1,
+              image: pokémon.imageUrl
+            }
+          })
+        })
       }
       else {
-        fetchPokémon()
+        this.fetchPokémon()
       }
     }
   },
+
   created() {
     this.fetchPokémon();
     this.fetchTypes();
