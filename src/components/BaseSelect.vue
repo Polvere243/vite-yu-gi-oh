@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped>
 select {
     cursor: pointer;
+    padding: 10px;
+
 }
 </style>
-
